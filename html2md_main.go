@@ -49,7 +49,7 @@ type OptsT struct {
 
 var (
 	progname = "html2md"
-	version  = "0.1.0"
+	version  = "0.1.01"
 	date     = "2020-07-25"
 
 	rootArgv *rootT
