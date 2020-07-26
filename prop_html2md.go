@@ -11,6 +11,7 @@ import (
 	"regexp"
 
 	md "github.com/JohannesKaufmann/html-to-markdown"
+	"github.com/JohannesKaufmann/html-to-markdown/plugin"
 	"github.com/PuerkitoBio/goquery"
 	"github.com/mkideal/cli"
 	"github.com/mkideal/cli/clis"
@@ -67,6 +68,36 @@ func html2md(ctx *cli.Context) error {
 	}
 	clis.Verbose(2, "domain='%s'\n", domain)
 	conv := md.NewConverter(domain, true, opt)
+
+	// Plugin handling
+	if rootArgv.PluginConfluenceAttachments {
+		conv.Use(plugin.ConfluenceAttachments())
+	}
+	if rootArgv.PluginConfluenceCodeBlock {
+		conv.Use(plugin.ConfluenceCodeBlock())
+	}
+	// if rootArgv.PluginFrontMatter {
+	// 	conv.Use(plugin.FrontMatter())
+	// }
+	if rootArgv.PluginGitHubFlavored {
+		conv.Use(plugin.GitHubFlavored())
+	}
+	if rootArgv.PluginStrikethrough {
+		conv.Use(plugin.Strikethrough(""))
+	}
+	// if rootArgv.PluginTable {
+	// 	conv.Use(plugin.Table())
+	// }
+	if rootArgv.PluginTaskListItems {
+		conv.Use(plugin.TaskListItems())
+	}
+	// if rootArgv.PluginVimeoEmbed {
+	// 	conv.Use(plugin.VimeoEmbed())
+	// }
+	// if rootArgv.PluginYoutubeEmbed {
+	// 	conv.Use(plugin.YoutubeEmbed())
+	// }
+
 	markdown := conv.Convert(content)
 
 	fmt.Println(markdown)
