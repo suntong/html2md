@@ -71,14 +71,3 @@ func main() {
 	}
 	fmt.Println("")
 }
-
-//==========================================================================
-// Dumb root handler
-
-func html2md(ctx *cli.Context) error {
-	ctx.JSON(ctx.RootArgv())
-	ctx.JSON(ctx.Argv())
-	fmt.Println()
-
-	return nil
-}
