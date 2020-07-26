@@ -26,6 +26,37 @@ func html2md(ctx *cli.Context) error {
 	clis.Verbose(1, "%#v\n", rootArgv)
 	clis.Verbose(2, "%s\n", rootArgv.Filei.Name())
 
+	// Options handling
+	opt := &md.Options{}
+	if rootArgv.OptHeadingStyle != "" {
+		opt.HeadingStyle = rootArgv.OptHeadingStyle
+	}
+	if rootArgv.OptHorizontalRule != "" {
+		opt.HorizontalRule = rootArgv.OptHorizontalRule
+	}
+	if rootArgv.OptBulletListMarker != "" {
+		opt.BulletListMarker = rootArgv.OptBulletListMarker
+	}
+	if rootArgv.OptCodeBlockStyle != "" {
+		opt.CodeBlockStyle = rootArgv.OptCodeBlockStyle
+	}
+	if rootArgv.OptFence != "" {
+		opt.Fence = rootArgv.OptFence
+	}
+	if rootArgv.OptEmDelimiter != "" {
+		opt.EmDelimiter = rootArgv.OptEmDelimiter
+	}
+	if rootArgv.OptStrongDelimiter != "" {
+		opt.StrongDelimiter = rootArgv.OptStrongDelimiter
+	}
+	if rootArgv.OptLinkStyle != "" {
+		opt.LinkStyle = rootArgv.OptLinkStyle
+	}
+	if rootArgv.OptLinkReferenceStyle != "" {
+		opt.LinkReferenceStyle = rootArgv.OptLinkReferenceStyle
+	}
+	clis.Verbose(1, "%#v\n", opt)
+
 	doc, err := goquery.NewDocumentFromReader(rootArgv.Filei)
 	clis.AbortOn("Reading file with goquery", err)
 	content := doc.Find(rootArgv.Sel)
@@ -35,7 +66,7 @@ func html2md(ctx *cli.Context) error {
 		domain = md.DomainFromURL(url)
 	}
 	clis.Verbose(2, "domain='%s'\n", domain)
-	conv := md.NewConverter(domain, true, nil)
+	conv := md.NewConverter(domain, true, opt)
 	markdown := conv.Convert(content)
 
 	fmt.Println(markdown)
