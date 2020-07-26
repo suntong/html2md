@@ -8,11 +8,11 @@ package main
 
 import (
 	"fmt"
-	"log"
 
 	md "github.com/JohannesKaufmann/html-to-markdown"
 	"github.com/PuerkitoBio/goquery"
 	"github.com/mkideal/cli"
+	"github.com/mkideal/cli/clis"
 )
 
 //==========================================================================
@@ -20,17 +20,16 @@ import (
 
 func html2md(ctx *cli.Context) error {
 	ctx.JSON(ctx.RootArgv())
-	ctx.JSON(ctx.Argv())
-	fmt.Println()
+	rootArgv = ctx.RootArgv().(*rootT)
+	// https://pkg.go.dev/github.com/mkideal/cli@v0.2.2/clis?tab=doc
+	clis.Setup(progname, rootArgv.Verbose.Value())
+	clis.Verbose(2, "%s\n", rootArgv.Filei.Name())
 
-	url := "https://blog.golang.org/godoc-documenting-go-code"
-	doc, err := goquery.NewDocument(url)
-	if err != nil {
-		log.Fatal(err)
-	}
-	content := doc.Find("#content")
+	doc, err := goquery.NewDocumentFromReader(rootArgv.Filei)
+	clis.AbortOn("Reading file with goquery", err)
+	content := doc.Find(rootArgv.Sel)
 
-	conv := md.NewConverter(md.DomainFromURL(url), true, nil)
+	conv := md.NewConverter(md.DomainFromURL(rootArgv.Filei.Name()), true, nil)
 	markdown := conv.Convert(content)
 
 	fmt.Println(markdown)
