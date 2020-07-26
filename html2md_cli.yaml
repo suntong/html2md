@@ -1,0 +1,115 @@
+# program name, name for the executable
+ProgramName: html2md
+Authors: Tong Sun
+
+PackageName: main
+
+Name: html2md
+Desc: HTML to Markdown
+Text: HTML to Markdown converter on command line
+#NumArg: cli.AtLeast(1)
+NumOption: cli.AtLeast(1)
+
+UsageLead: "Usage:\\n  html2md [Options...]"
+
+
+Options:
+  - Name: Filei
+    Type: '*clix.Reader'
+    Flag: "*i,in"
+    Usage: 'The html/xml file to read from (or stdin)'
+
+  - Name: Sel
+    Type: 'string'
+    Flag: 's,sel'
+    Usage: "CSS/goquery selectors\\n"
+
+  - Name: OptHeadingStyle
+    Type: "string"
+    Flag: "opt-heading-style"
+    Usage: Option HeadingStyle
+
+  - Name: OptHorizontalRule
+    Type: "string"
+    Flag: "opt-horizontal-rule"
+    Usage: Option HorizontalRule
+
+  - Name: OptBulletListMarker
+    Type: "string"
+    Flag: "opt-bullet-list-marker"
+    Usage: Option BulletListMarker
+
+  - Name: OptCodeBlockStyle
+    Type: "string"
+    Flag: "opt-code-block-style"
+    Usage: Option CodeBlockStyle
+
+  - Name: OptFence
+    Type: "string"
+    Flag: "opt-fence"
+    Usage: Option Fence
+
+  - Name: OptEmDelimiter
+    Type: "string"
+    Flag: "opt-em-delimiter"
+    Usage: Option EmDelimiter
+
+  - Name: OptStrongDelimiter
+    Type: "string"
+    Flag: "opt-strong-delimiter"
+    Usage: Option StrongDelimiter
+
+  - Name: OptLinkStyle
+    Type: "string"
+    Flag: "opt-link-style"
+    Usage: Option LinkStyle
+
+  - Name: OptLinkReferenceStyle
+    Type: "string"
+    Flag: "opt-link-reference-style"
+    Usage: "Option LinkReferenceStyle\\n"
+
+  - Name: PluginConfluenceAttachments
+    Type: bool
+    Flag: "plugin-conf-attachment"
+    Usage: Plugin ConfluenceAttachments
+
+  - Name: PluginConfluenceCodeBlock
+    Type: bool
+    Flag: "plugin-conf-code"
+    Usage: Plugin ConfluenceCodeBlock
+
+  - Name: PluginFrontMatter
+    Type: bool
+    Flag: "plugin-frontmatter"
+    Usage: Plugin FrontMatter
+
+  - Name: PluginGitHubFlavored
+    Type: bool
+    Flag: "plugin-gfm"
+    Usage: Plugin GitHubFlavored
+
+  - Name: PluginStrikethrough
+    Type: bool
+    Flag: "plugin-strikethrough"
+    Usage: Plugin Strikethrough
+
+  - Name: PluginTable
+    Type: bool
+    Flag: "plugin-table"
+    Usage: Plugin Table
+
+  - Name: PluginTaskListItems
+    Type: bool
+    Flag: "plugin-task-list"
+    Usage: Plugin TaskListItems
+
+  - Name: PluginVimeoEmbed
+    Type: bool
+    Flag: "plugin-vimeo"
+    Usage: Plugin VimeoEmbed
+
+  - Name: PluginYoutubeEmbed
+    Type: bool
+    Flag: "plugin-youtube"
+    Usage: Plugin YoutubeEmbed

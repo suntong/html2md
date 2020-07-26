@@ -1,0 +1,13 @@
+# used to remove files from deployment via `git archive`
+# git files
+.gitattributes export-ignore
+.gitignore export-ignore
+# general text files
+*.e.md export-ignore
+# CI/CD
+.travis.yml export-ignore
+.gitlab-ci.yml export-ignore
+bintray-*.json export-ignore
+
+## This project
+html2md_proj.yaml export-ignore
