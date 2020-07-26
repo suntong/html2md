@@ -19,10 +19,23 @@ Options:
     Flag: "*i,in"
     Usage: 'The html/xml file to read from (or stdin)'
 
+  - Name: Domain
+    Type: 'string'
+    Flag: 'd,domain'
+    Usage: "Domain of the web page, needed for links when --in is not url"
+
   - Name: Sel
     Type: 'string'
     Flag: 's,sel'
-    Usage: "CSS/goquery selectors\\n"
+    Usage: "CSS/goquery selectors"
+    Value: "body"
+
+  - Name: Verbose
+    Type: cli.Counter
+    Flag: v,verbose
+    Usage: "Verbose mode (Multiple -v options increase the verbosity.)\\n"
+
+# Options
 
   - Name: OptHeadingStyle
     Type: "string"
@@ -69,47 +82,49 @@ Options:
     Flag: "opt-link-reference-style"
     Usage: "Option LinkReferenceStyle\\n"
 
+# Plugins
+
   - Name: PluginConfluenceAttachments
     Type: bool
-    Flag: "plugin-conf-attachment"
+    Flag: "A,plugin-conf-attachment"
     Usage: Plugin ConfluenceAttachments
 
   - Name: PluginConfluenceCodeBlock
     Type: bool
-    Flag: "plugin-conf-code"
+    Flag: "C,plugin-conf-code"
     Usage: Plugin ConfluenceCodeBlock
 
   - Name: PluginFrontMatter
     Type: bool
-    Flag: "plugin-frontmatter"
+    Flag: "F,plugin-frontmatter"
     Usage: Plugin FrontMatter
 
   - Name: PluginGitHubFlavored
     Type: bool
-    Flag: "plugin-gfm"
+    Flag: "G,plugin-gfm"
     Usage: Plugin GitHubFlavored
 
   - Name: PluginStrikethrough
     Type: bool
-    Flag: "plugin-strikethrough"
+    Flag: "S,plugin-strikethrough"
     Usage: Plugin Strikethrough
 
   - Name: PluginTable
     Type: bool
-    Flag: "plugin-table"
+    Flag: "T,plugin-table"
     Usage: Plugin Table
 
   - Name: PluginTaskListItems
     Type: bool
-    Flag: "plugin-task-list"
+    Flag: "L,plugin-task-list"
     Usage: Plugin TaskListItems
 
   - Name: PluginVimeoEmbed
     Type: bool
-    Flag: "plugin-vimeo"
+    Flag: "V,plugin-vimeo"
     Usage: Plugin VimeoEmbed
 
   - Name: PluginYoutubeEmbed
     Type: bool
-    Flag: "plugin-youtube"
+    Flag: "Y,plugin-youtube"
     Usage: Plugin YoutubeEmbed

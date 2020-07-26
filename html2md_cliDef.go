@@ -24,7 +24,9 @@ import (
 type rootT struct {
 	cli.Helper
 	Filei                       *clix.Reader `cli:"*i,in" usage:"The html/xml file to read from (or stdin)"`
-	Sel                         string       `cli:"s,sel" usage:"CSS/goquery selectors\n"`
+	Domain                      string       `cli:"d,domain" usage:"Domain of the web page, needed for links when --in is not url"`
+	Sel                         string       `cli:"s,sel" usage:"CSS/goquery selectors" dft:"body"`
+	Verbose                     cli.Counter  `cli:"v,verbose" usage:"Verbose mode (Multiple -v options increase the verbosity.)\n"`
 	OptHeadingStyle             string       `cli:"opt-heading-style" usage:"Option HeadingStyle"`
 	OptHorizontalRule           string       `cli:"opt-horizontal-rule" usage:"Option HorizontalRule"`
 	OptBulletListMarker         string       `cli:"opt-bullet-list-marker" usage:"Option BulletListMarker"`
@@ -34,15 +36,15 @@ type rootT struct {
 	OptStrongDelimiter          string       `cli:"opt-strong-delimiter" usage:"Option StrongDelimiter"`
 	OptLinkStyle                string       `cli:"opt-link-style" usage:"Option LinkStyle"`
 	OptLinkReferenceStyle       string       `cli:"opt-link-reference-style" usage:"Option LinkReferenceStyle\n"`
-	PluginConfluenceAttachments bool         `cli:"plugin-conf-attachment" usage:"Plugin ConfluenceAttachments"`
-	PluginConfluenceCodeBlock   bool         `cli:"plugin-conf-code" usage:"Plugin ConfluenceCodeBlock"`
-	PluginFrontMatter           bool         `cli:"plugin-frontmatter" usage:"Plugin FrontMatter"`
-	PluginGitHubFlavored        bool         `cli:"plugin-gfm" usage:"Plugin GitHubFlavored"`
-	PluginStrikethrough         bool         `cli:"plugin-strikethrough" usage:"Plugin Strikethrough"`
-	PluginTable                 bool         `cli:"plugin-table" usage:"Plugin Table"`
-	PluginTaskListItems         bool         `cli:"plugin-task-list" usage:"Plugin TaskListItems"`
-	PluginVimeoEmbed            bool         `cli:"plugin-vimeo" usage:"Plugin VimeoEmbed"`
-	PluginYoutubeEmbed          bool         `cli:"plugin-youtube" usage:"Plugin YoutubeEmbed"`
+	PluginConfluenceAttachments bool         `cli:"A,plugin-conf-attachment" usage:"Plugin ConfluenceAttachments"`
+	PluginConfluenceCodeBlock   bool         `cli:"C,plugin-conf-code" usage:"Plugin ConfluenceCodeBlock"`
+	PluginFrontMatter           bool         `cli:"F,plugin-frontmatter" usage:"Plugin FrontMatter"`
+	PluginGitHubFlavored        bool         `cli:"G,plugin-gfm" usage:"Plugin GitHubFlavored"`
+	PluginStrikethrough         bool         `cli:"S,plugin-strikethrough" usage:"Plugin Strikethrough"`
+	PluginTable                 bool         `cli:"T,plugin-table" usage:"Plugin Table"`
+	PluginTaskListItems         bool         `cli:"L,plugin-task-list" usage:"Plugin TaskListItems"`
+	PluginVimeoEmbed            bool         `cli:"V,plugin-vimeo" usage:"Plugin VimeoEmbed"`
+	PluginYoutubeEmbed          bool         `cli:"Y,plugin-youtube" usage:"Plugin YoutubeEmbed"`
 }
 
 var root = &cli.Command{
@@ -64,7 +66,9 @@ var root = &cli.Command{
 // The OptsT type defines all the configurable options from cli.
 //  type OptsT struct {
 //  	Filei	*clix.Reader
+//  	Domain	string
 //  	Sel	string
+//  	Verbose	cli.Counter
 //  	OptHeadingStyle	string
 //  	OptHorizontalRule	string
 //  	OptBulletListMarker	string
@@ -92,7 +96,7 @@ var root = &cli.Command{
 //  var (
 //          progname  = "html2md"
 //          version   = "0.1.0"
-//          date = "2020-07-25"
+//          date = "2020-07-26"
 
 //  	rootArgv *rootT
 //  	// Opts store all the configurable options
