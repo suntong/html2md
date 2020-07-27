@@ -29,6 +29,30 @@ func html2md(ctx *cli.Context) error {
 
 	// Options handling
 	opt := &md.Options{}
+	opt = handleOptions(opt, rootArgv)
+	clis.Verbose(1, "%#v\n", opt)
+
+	doc, err := goquery.NewDocumentFromReader(rootArgv.Filei)
+	clis.AbortOn("Reading file with goquery", err)
+	content := doc.Find(rootArgv.Sel)
+
+	domain, url := rootArgv.Domain, rootArgv.Filei.Name()
+	if domain == "" && regexp.MustCompile(`(?i)^http`).MatchString(url) {
+		domain = md.DomainFromURL(url)
+	}
+	clis.Verbose(2, "domain='%s'\n", domain)
+	conv := md.NewConverter(domain, true, opt)
+
+	// Plugin handling
+	conv = handlePlugins(conv, rootArgv)
+	markdown := conv.Convert(content)
+
+	fmt.Println(markdown)
+
+	return nil
+}
+
+func handleOptions(opt *md.Options, rootArgv *rootT) *md.Options {
 	if rootArgv.OptHeadingStyle != "" {
 		opt.HeadingStyle = rootArgv.OptHeadingStyle
 	}
@@ -56,20 +80,10 @@ func html2md(ctx *cli.Context) error {
 	if rootArgv.OptLinkReferenceStyle != "" {
 		opt.LinkReferenceStyle = rootArgv.OptLinkReferenceStyle
 	}
-	clis.Verbose(1, "%#v\n", opt)
+	return opt
+}
 
-	doc, err := goquery.NewDocumentFromReader(rootArgv.Filei)
-	clis.AbortOn("Reading file with goquery", err)
-	content := doc.Find(rootArgv.Sel)
-
-	domain, url := rootArgv.Domain, rootArgv.Filei.Name()
-	if domain == "" && regexp.MustCompile(`(?i)^http`).MatchString(url) {
-		domain = md.DomainFromURL(url)
-	}
-	clis.Verbose(2, "domain='%s'\n", domain)
-	conv := md.NewConverter(domain, true, opt)
-
-	// Plugin handling
+func handlePlugins(conv *md.Converter, rootArgv *rootT) *md.Converter {
 	if rootArgv.PluginConfluenceAttachments {
 		conv.Use(plugin.ConfluenceAttachments())
 	}
@@ -97,10 +111,5 @@ func html2md(ctx *cli.Context) error {
 	// if rootArgv.PluginYoutubeEmbed {
 	// 	conv.Use(plugin.YoutubeEmbed())
 	// }
-
-	markdown := conv.Convert(content)
-
-	fmt.Println(markdown)
-
-	return nil
+	return conv
 }
