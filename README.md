@@ -13,6 +13,7 @@
   - [Simplest form](#simplest-form)
   - [Using goquery](#using-goquery)
   - [The options and plugins](#the-options-and-plugins)
+  - [Testing the new table plugins](#testing-the-new-table-plugins)
 - [Debian package](#debian-package)
 - [Install Source](#install-source)
   - [Credits](#credits)
@@ -32,7 +33,7 @@ to convert HTML into Markdown, which is using an [HTML Parser](https://github.co
 ### $ html2md
 ```sh
 HTML to Markdown
-Version 0.1.01 built on 2020-07-26
+Version 0.2.01 built on 2020-08-08
 Copyright (C) 2020, Tong Sun
 
 HTML to Markdown converter on command line
@@ -64,6 +65,7 @@ Options:
   -G, --plugin-gfm                 Plugin GitHubFlavored 
   -S, --plugin-strikethrough       Plugin Strikethrough 
   -T, --plugin-table               Plugin Table 
+      --plugin-table-compat        Plugin TableCompat 
   -L, --plugin-task-list           Plugin TaskListItems 
   -V, --plugin-vimeo               Plugin VimeoEmbed 
   -Y, --plugin-youtube             Plugin YoutubeEmbed
@@ -107,6 +109,39 @@ $ echo '<ul><li><input type=checkbox checked>Checked!</li><li><input type=checkb
 
 $ echo 'Only <del>blue ones</del> <s> left</s>' | html2md -i --plugin-strikethrough
 Only ~blue ones~ ~left~
+```
+
+## Testing the new table plugins
+
+```sh
+$ cat $GOPATH/src/github.com/JohannesKaufmann/html-to-markdown/testdata/TestPlugins/table/input.html | html2md -i -T | head -6
+| Firstname | Lastname | Age |
+| --- | --- | --- |
+| Jill | Smith | 50 |
+| Eve | Jackson | 94 |
+| Empty |  |  |
+| End |
+
+$ cat $GOPATH/src/github.com/JohannesKaufmann/html-to-markdown/testdata/TestPlugins/table/input.html | html2md -i -T --domain example.com | diff -wU 1 $GOPATH/src/github.com/JohannesKaufmann/html-to-markdown/testdata/TestPlugins/table/output.table.golden -
+---
+@@ -41 +41,2 @@
+ | `var` | b | c |
+\ No newline at end of file
++
+
+$ cat $GOPATH/src/github.com/JohannesKaufmann/html-to-markdown/testdata/TestPlugins/table/input.html | html2md -i --plugin-table-compat | head -6
+Firstname · Lastname · Age
+
+Jill · Smith · 50
+
+Eve · Jackson · 94
+
+$ cat $GOPATH/src/github.com/JohannesKaufmann/html-to-markdown/testdata/TestPlugins/table/input.html | html2md -i --plugin-table-compat --domain example.com | diff -wU 1 $GOPATH/src/github.com/JohannesKaufmann/html-to-markdown/testdata/TestPlugins/table/output.tablecompat.golden -
+---
+@@ -41 +41,2 @@
+ `var` · b · c
+\ No newline at end of file
++
 ```
 
 # Debian package

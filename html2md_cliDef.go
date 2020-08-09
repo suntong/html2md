@@ -42,6 +42,7 @@ type rootT struct {
 	PluginGitHubFlavored        bool         `cli:"G,plugin-gfm" usage:"Plugin GitHubFlavored"`
 	PluginStrikethrough         bool         `cli:"S,plugin-strikethrough" usage:"Plugin Strikethrough"`
 	PluginTable                 bool         `cli:"T,plugin-table" usage:"Plugin Table"`
+	PluginTableCompat           bool         `cli:"plugin-table-compat" usage:"Plugin TableCompat"`
 	PluginTaskListItems         bool         `cli:"L,plugin-task-list" usage:"Plugin TaskListItems"`
 	PluginVimeoEmbed            bool         `cli:"V,plugin-vimeo" usage:"Plugin VimeoEmbed"`
 	PluginYoutubeEmbed          bool         `cli:"Y,plugin-youtube" usage:"Plugin YoutubeEmbed"`
@@ -84,6 +85,7 @@ var root = &cli.Command{
 //  	PluginGitHubFlavored	bool
 //  	PluginStrikethrough	bool
 //  	PluginTable	bool
+//  	PluginTableCompat	bool
 //  	PluginTaskListItems	bool
 //  	PluginVimeoEmbed	bool
 //  	PluginYoutubeEmbed	bool
@@ -96,7 +98,7 @@ var root = &cli.Command{
 //  var (
 //          progname  = "html2md"
 //          version   = "0.1.0"
-//          date = "2020-07-26"
+//          date = "2020-08-09"
 
 //  	rootArgv *rootT
 //  	// Opts store all the configurable options

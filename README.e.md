@@ -59,6 +59,39 @@ $ echo 'Only <del>blue ones</del> <s> left</s>' | html2md -i --plugin-strikethro
 Only ~blue ones~ ~left~
 ```
 
+## Testing the new table plugins
+
+```sh
+$ cat $GOPATH/src/github.com/JohannesKaufmann/html-to-markdown/testdata/TestPlugins/table/input.html | html2md -i -T | head -6
+| Firstname | Lastname | Age |
+| --- | --- | --- |
+| Jill | Smith | 50 |
+| Eve | Jackson | 94 |
+| Empty |  |  |
+| End |
+
+$ cat $GOPATH/src/github.com/JohannesKaufmann/html-to-markdown/testdata/TestPlugins/table/input.html | html2md -i -T --domain example.com | diff -wU 1 $GOPATH/src/github.com/JohannesKaufmann/html-to-markdown/testdata/TestPlugins/table/output.table.golden -
+---
+@@ -41 +41,2 @@
+ | `var` | b | c |
+\ No newline at end of file
++
+
+$ cat $GOPATH/src/github.com/JohannesKaufmann/html-to-markdown/testdata/TestPlugins/table/input.html | html2md -i --plugin-table-compat | head -6
+Firstname · Lastname · Age
+
+Jill · Smith · 50
+
+Eve · Jackson · 94
+
+$ cat $GOPATH/src/github.com/JohannesKaufmann/html-to-markdown/testdata/TestPlugins/table/input.html | html2md -i --plugin-table-compat --domain example.com | diff -wU 1 $GOPATH/src/github.com/JohannesKaufmann/html-to-markdown/testdata/TestPlugins/table/output.tablecompat.golden -
+---
+@@ -41 +41,2 @@
+ `var` · b · c
+\ No newline at end of file
++
+```
+
 # Debian package
 
 Will be available once `github.com/JohannesKaufmann/html-to-markdown` has a release version.

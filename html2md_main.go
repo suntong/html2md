@@ -49,8 +49,8 @@ type OptsT struct {
 
 var (
 	progname = "html2md"
-	version  = "0.1.01"
-	date     = "2020-07-25"
+	version  = "0.2.01"
+	date     = "2020-08-08"
 
 	rootArgv *rootT
 	// Opts store all the configurable options

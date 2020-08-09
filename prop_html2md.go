@@ -99,9 +99,12 @@ func handlePlugins(conv *md.Converter, rootArgv *rootT) *md.Converter {
 	if rootArgv.PluginStrikethrough {
 		conv.Use(plugin.Strikethrough(""))
 	}
-	// if rootArgv.PluginTable {
-	// 	conv.Use(plugin.Table())
-	// }
+	if rootArgv.PluginTable {
+		conv.Use(plugin.Table())
+	}
+	if rootArgv.PluginTableCompat {
+		conv.Use(plugin.TableCompat())
+	}
 	if rootArgv.PluginTaskListItems {
 		conv.Use(plugin.TaskListItems())
 	}

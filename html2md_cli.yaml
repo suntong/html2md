@@ -114,6 +114,11 @@ Options:
     Flag: "T,plugin-table"
     Usage: Plugin Table
 
+  - Name: PluginTableCompat
+    Type: bool
+    Flag: "plugin-table-compat"
+    Usage: Plugin TableCompat
+
   - Name: PluginTaskListItems
     Type: bool
     Flag: "L,plugin-task-list"
