@@ -1,0 +1,31 @@
+project_name: html2md
+
+archives:
+  - format: tar.gz
+    wrap_in_directory: true
+    format_overrides:
+      - goos: windows
+        format: zip
+    # remove README and LICENSE
+    files:
+      - none*
+
+builds:
+  - env: [CGO_ENABLED=0]
+    goos:
+      - linux
+      - windows
+      - darwin
+    goarch:
+      - amd64
+      - arm64
+
+nfpms:
+- maintainer: Tong Sun <suntong@cpan.org>
+  description: HTML to Markdown converter
+  homepage: https://github.com/suntong/html2md
+  license: MIT
+  formats:
+  - deb
+  - rpm
+  - apk
