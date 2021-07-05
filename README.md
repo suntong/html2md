@@ -14,8 +14,10 @@
   - [Using goquery](#using-goquery)
   - [The options and plugins](#the-options-and-plugins)
   - [Testing the new table plugins](#testing-the-new-table-plugins)
-- [Debian package](#debian-package)
-- [Install Source](#install-source)
+- [Download/Install](#downloadinstall)
+  - [Download binaries](#download-binaries)
+  - [Install Source](#install-source)
+- [Credits & Authors](#credits-&-authors)
   - [Credits](#credits)
   - [Similar Projects](#similar-projects)
   - [Author(s) & Contributor(s)](#author(s)-&-contributor(s))
@@ -144,17 +146,29 @@ $ cat $GOPATH/src/github.com/JohannesKaufmann/html-to-markdown/testdata/TestPlug
 +
 ```
 
-# Debian package
+# Download/Install
 
-Will be available once `github.com/JohannesKaufmann/html-to-markdown` has a release version.
 
-# Install Source
+## Download binaries
+
+- The latest binary executables are available right under the github release page  
+https://github.com/suntong/html2md/releases  
+as the result of the Continuous-Integration process.
+- I.e., they are built during every git tagged push, automatically by [GitHub Actions](https://github.com/features/actions), right from the source code, truely WYSIWYG.
+- The `.deb`, `.rpm` and `.apk` packages are readily available, as well as the executables for other Linux and Windows as well.
+- Pick & choose the binary executable that suits your OS and its architecture. E.g., for Linux, it would most probably be the `html2md_ver_linux_amd64.tar.gz` file.
+- Unzip it and put the executable somewhere in the PATH, after downloading it. 
+
+
+## Install Source
 
 To install the source code instead:
 
 ```
 go get github.com/suntong/html2md
 ```
+
+# Credits & Authors
 
 
 ## Credits
@@ -172,6 +186,7 @@ go get github.com/suntong/html2md
 Tong SUN  
 ![suntong from cpan.org](https://img.shields.io/badge/suntong-%40cpan.org-lightgrey.svg "suntong from cpan.org")
 
-_Powered by_ [**WireFrame**](https://github.com/go-easygen/wireframe),  [![PoweredBy WireFrame](https://github.com/go-easygen/wireframe/blob/master/PoweredBy-WireFrame-Y.svg)](http://godoc.org/github.com/go-easygen/wireframe), the _one-stop wire-framing solution_ for Go cli based projects, from start to deploy.
+[![PoweredBy WireFrame](https://github.com/go-easygen/wireframe/blob/master/PoweredBy-WireFrame-Y.svg)](http://godoc.org/github.com/go-easygen/wireframe)  
+_Powered by_ [**WireFrame**](https://github.com/go-easygen/wireframe), the _one-stop wire-framing solution_ for Go cli based projects, from start to deploy.
 
 All patches welcome. 
