@@ -18,6 +18,12 @@ jobs:
           go-version: 1.15
 
       -
+        name: Install Cloudsmith CLI
+        run: pip install --upgrade cloudsmith-cli
+        # Cloudsmith CLI tooling for pushing releases
+        # See https://help.cloudsmith.io/docs/cli
+
+      -
         name: Checkout
         uses: actions/checkout@v2
         with:
@@ -43,3 +49,31 @@ jobs:
           args: release --rm-dist
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Publish to cloudsmith repo
+      -
+        name: Publish package to cloudsmith
+        if: success() && startsWith(github.ref, 'refs/tags/')
+        env:
+          CLOUDSMITH_API_KEY: ${{ secrets.CLOUDSMITH_API_KEY }}
+        run: |
+          for filepath in dist/*; do
+            echo "== Analyzing '$filepath' for publishing"
+            filename=$(basename -- "$filepath")
+            extension="${filename##*.}"
+            filename="${filename%.*}"
+            case "$extension" in
+            'apk')
+              echo "Pushing '$filepath' to cloudsmith repo"
+              cloudsmith push alpine suntong/repo/alpine/any-version $filepath
+              ;;
+            'deb' | 'rpm')
+              echo "Pushing '$filepath' to cloudsmith repo"
+              cloudsmith push $extension suntong/repo/any-distro/any-version $filepath
+              ;;
+            *)
+              echo "File .$extension skipped publishing"
+              echo
+              ;;
+            esac
+          done
