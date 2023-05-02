@@ -41,6 +41,7 @@ jobs:
           ln -vs $GOPATH/src/github.com/$GITHUB_REPOSITORY $GITHUB_WORKSPACE
           # go mod tidy
           go get -v ./...
+          go build -v
           go test -v ./...
 
       -
