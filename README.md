@@ -165,7 +165,7 @@ as the result of the Continuous-Integration process.
 To install the source code instead:
 
 ```
-go get github.com/suntong/html2md
+go install github.com/suntong/html2md@latest
 ```
 
 # Credits & Authors
