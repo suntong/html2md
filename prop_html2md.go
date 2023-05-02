@@ -20,7 +20,7 @@ import (
 //==========================================================================
 // root handler
 
-func html2md(ctx *cli.Context) error {
+func Html2md(ctx *cli.Context) error {
 	rootArgv = ctx.RootArgv().(*rootT)
 	// https://pkg.go.dev/github.com/mkideal/cli@v0.2.2/clis?tab=doc
 	clis.Setup(progname, rootArgv.Verbose.Value())
@@ -79,6 +79,9 @@ func handleOptions(opt *md.Options, rootArgv *rootT) *md.Options {
 	}
 	if rootArgv.OptLinkReferenceStyle != "" {
 		opt.LinkReferenceStyle = rootArgv.OptLinkReferenceStyle
+	}
+	if rootArgv.OptEscapeMode != "" {
+		opt.EscapeMode = rootArgv.OptEscapeMode
 	}
 	return opt
 }

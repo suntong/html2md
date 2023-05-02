@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////
 // Program: html2md
 // Purpose: HTML to Markdown
-// Authors: Tong Sun (c) 2020, All rights reserved
+// Authors: Tong Sun (c) 2020-2023, All rights reserved
 ////////////////////////////////////////////////////////////////////////////
 
 package main
@@ -35,7 +35,8 @@ type rootT struct {
 	OptEmDelimiter              string       `cli:"opt-em-delimiter" usage:"Option EmDelimiter"`
 	OptStrongDelimiter          string       `cli:"opt-strong-delimiter" usage:"Option StrongDelimiter"`
 	OptLinkStyle                string       `cli:"opt-link-style" usage:"Option LinkStyle"`
-	OptLinkReferenceStyle       string       `cli:"opt-link-reference-style" usage:"Option LinkReferenceStyle\n"`
+	OptLinkReferenceStyle       string       `cli:"opt-link-reference-style" usage:"Option LinkReferenceStyle"`
+	OptEscapeMode               string       `cli:"opt-escape-mode" usage:"Option EscapeMode\n"`
 	PluginConfluenceAttachments bool         `cli:"A,plugin-conf-attachment" usage:"Plugin ConfluenceAttachments"`
 	PluginConfluenceCodeBlock   bool         `cli:"C,plugin-conf-code" usage:"Plugin ConfluenceCodeBlock"`
 	PluginFrontMatter           bool         `cli:"F,plugin-frontmatter" usage:"Plugin FrontMatter"`
@@ -51,11 +52,11 @@ type rootT struct {
 var root = &cli.Command{
 	Name: "html2md",
 	Desc: "HTML to Markdown\nVersion " + version + " built on " + date +
-		"\nCopyright (C) 2020, Tong Sun",
+		"\nCopyright (C) 2020-2023, Tong Sun",
 	Text: "HTML to Markdown converter on command line" +
 		"\n\nUsage:\n  html2md [Options...]",
 	Argv: func() interface{} { return new(rootT) },
-	Fn:   html2md,
+	Fn:   Html2md,
 
 	NumOption: cli.AtLeast(1),
 }
@@ -79,6 +80,7 @@ var root = &cli.Command{
 //  	OptStrongDelimiter	string
 //  	OptLinkStyle	string
 //  	OptLinkReferenceStyle	string
+//  	OptEscapeMode	string
 //  	PluginConfluenceAttachments	bool
 //  	PluginConfluenceCodeBlock	bool
 //  	PluginFrontMatter	bool
@@ -98,7 +100,7 @@ var root = &cli.Command{
 //  var (
 //          progname  = "html2md"
 //          version   = "0.1.0"
-//          date = "2020-08-09"
+//          date = "2023-05-02"
 
 //  	rootArgv *rootT
 //  	// Opts store all the configurable options
@@ -110,9 +112,7 @@ var root = &cli.Command{
 
 // Function main
 //  func main() {
-//  	cli.SetUsageStyle(cli.DenseNormalStyle) // left-right, for up-down, use ManualStyle
-//  	//NOTE: You can set any writer implements io.Writer
-//  	// default writer is os.Stdout
+//  	cli.SetUsageStyle(cli.DenseNormalStyle)
 //  	if err := cli.Root(root,).Run(os.Args[1:]); err != nil {
 //  		fmt.Fprintln(os.Stderr, err)
 //  		os.Exit(1)
@@ -124,7 +124,8 @@ var root = &cli.Command{
 //==========================================================================
 // Dumb root handler
 
-//  func html2md(ctx *cli.Context) error {
+// Html2md - main dispatcher dumb handler
+//  func Html2md(ctx *cli.Context) error {
 //  	ctx.JSON(ctx.RootArgv())
 //  	ctx.JSON(ctx.Argv())
 //  	fmt.Println()

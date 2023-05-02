@@ -32,6 +32,10 @@ func TestExec(t *testing.T) {
 			"BoldEscape", "**option src\\_ip**", boldEscape, []string{"-i"},
 		},
 		{
+			"BoldEscapeOff", "**option src_ip**", boldEscape,
+			[]string{"-i", "--opt-escape-mode", "disabled"},
+		},
+		{
 			"Checkbox", "- [x] Checked!\n- [ ] Check Me!",
 			"<ul><li><input type=checkbox checked>Checked!</li><li><input type=checkbox>Check Me!</li></ul>",
 			[]string{"-i", "-G"},

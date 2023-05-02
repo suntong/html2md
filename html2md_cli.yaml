@@ -1,6 +1,7 @@
 # program name, name for the executable
 ProgramName: html2md
 Authors: Tong Sun
+Since: 2020
 
 PackageName: main
 
@@ -80,7 +81,13 @@ Options:
   - Name: OptLinkReferenceStyle
     Type: "string"
     Flag: "opt-link-reference-style"
-    Usage: "Option LinkReferenceStyle\\n"
+    Usage: "Option LinkReferenceStyle"
+
+  - Name: OptEscapeMode
+    Type: "string"
+    Flag: "opt-escape-mode"
+    Usage: "Option EscapeMode\\n"
+
 
 # Plugins
 
