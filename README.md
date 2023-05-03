@@ -103,7 +103,9 @@ $ html2md -i https://github.com/suntong/html2md | head -3
 The most useful feature is to use and pass a [goquery](https://github.com/PuerkitoBio/goquery) selection to filter for the content you want. 
 
 ```md
-$ html2md -i https://github.com/JohannesKaufmann/html-to-markdown -s "div.BorderGrid-row.hide-sm.hide-md > div"
+$ html2md -i https://github.com/JohannesKaufmann/html-to-markdown -s "div.my-3"
+[go](http://github.com/topics/go "Topic: go") [html](http://github.com/topics/html "Topic: html") [markdown](http://github.com/topics/markdown "Topic: markdown") [golang](http://github.com/topics/golang "Topic: golang") [converter](http://github.com/topics/converter "Topic: converter") [html-to-markdown](http://github.com/topics/html-to-markdown "Topic: html-to-markdown") [goquery](http://github.com/topics/goquery "Topic: goquery")
+
 ```
 
 
@@ -124,7 +126,7 @@ $ echo '<ul><li><input type=checkbox checked>Checked!</li><li><input type=checkb
 - [ ] Check Me!
 
 $ echo 'Only <del>blue ones</del> <s> left</s>' | html2md -i --plugin-strikethrough
-Only ~blue ones~ ~left~
+Only ~~blue ones~~ ~~left~~
 ```
 
 #### Testing the new table plugins
