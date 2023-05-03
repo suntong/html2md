@@ -1,0 +1,41 @@
+{
+  "files": [
+    "README.md",
+    "README.beg.e.md",
+    "README.end2.e.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "suntong",
+      "name": "suntong",
+      "avatar_url": "https://avatars.githubusercontent.com/u/422244?v=4",
+      "profile": "https://github.com/suntong",
+      "contributions": [
+        "code",
+        "ideas",
+        "design",
+        "data",
+        "test",
+        "bug",
+        "doc",
+        "blog",
+        "example",
+        "tutorial",
+        "tool",
+        "platform",
+        "review",
+        "question",
+        "maintenance",
+        "infra"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "cc2py2",
+  "projectOwner": "go-cc",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
