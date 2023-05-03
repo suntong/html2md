@@ -30,12 +30,24 @@
         "maintenance",
         "infra"
       ]
+    },
+    {
+      "login": "VPanteleev-S7",
+      "name": "VPanteleev-S7",
+      "avatar_url": "https://avatars.githubusercontent.com/u/108007295?v=4",
+      "profile": "https://github.com/VPanteleev-S7",
+      "contributions": [
+        "code",
+        "bug",
+        "userTesting"
+      ]
     }
   ],
   "contributorsPerLine": 7,
-  "projectName": "cc2py2",
-  "projectOwner": "go-cc",
+  "projectName": "html2md",
+  "projectOwner": "suntong",
   "repoType": "github",
   "repoHost": "https://github.com",
-  "skipCi": true
+  "skipCi": true,
+  "commitConvention": "angular"
 }
