@@ -72,6 +72,17 @@
         "bug",
         "userTesting"
       ]
+    },
+    {
+      "login": "097115",
+      "name": "097115",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1415155?v=4",
+      "profile": "https://github.com/097115",
+      "contributions": [
+        "bug",
+        "ideas",
+        "userTesting"
+      ]
     }
   ],
   "contributorsPerLine": 7,
