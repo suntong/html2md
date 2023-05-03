@@ -41,6 +41,16 @@
         "bug",
         "userTesting"
       ]
+    },
+    {
+      "login": "itdoginfo",
+      "name": "itdoginfo",
+      "avatar_url": "https://avatars.githubusercontent.com/u/11143109?v=4",
+      "profile": "https://github.com/itdoginfo",
+      "contributions": [
+        "bug",
+        "userTesting"
+      ]
     }
   ],
   "contributorsPerLine": 7,
