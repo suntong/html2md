@@ -221,7 +221,7 @@ sudo apt-get install -y html2md
 To install the source code instead:
 
 ```
-go install github.com/suntong/html2md
+go install github.com/suntong/html2md@latest
 ```
 
 ## Author

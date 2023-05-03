@@ -58,7 +58,7 @@ sudo apt-get install -y {{.Name}}
 To install the source code instead:
 
 ```
-go install {{.ProjectURL}}
+go install {{.ProjectURL}}@latest
 ```
 
 ## Author
