@@ -62,6 +62,16 @@
         "ideas",
         "userTesting"
       ]
+    },
+    {
+      "login": "vivook",
+      "name": "vivook",
+      "avatar_url": "https://avatars.githubusercontent.com/u/24224102?v=4",
+      "profile": "https://github.com/vivook",
+      "contributions": [
+        "bug",
+        "userTesting"
+      ]
     }
   ],
   "contributorsPerLine": 7,
