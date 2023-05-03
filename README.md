@@ -227,10 +227,10 @@ curl -1sLf \
 
 # That's it. You then can do your normal operations, like
 
-sudo apt-get update
+sudo apt update
 apt-cache policy html2md
 
-sudo apt-get install -y html2md
+sudo apt install -y html2md
 ```
 
 ## Install Source

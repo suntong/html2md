@@ -51,10 +51,10 @@ curl -1sLf \
 
 # That's it. You then can do your normal operations, like
 
-sudo apt-get update
+sudo apt update
 apt-cache policy {{.Name}}
 
-sudo apt-get install -y {{.Name}}
+sudo apt install -y {{.Name}}
 ```
 
 ## Install Source
