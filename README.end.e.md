@@ -1,4 +1,8 @@
 
+## Install Debian/Ubuntu package
+
+    sudo apt install -y {{.Name}}
+
 ## Download/install binaries
 
 - The latest binary executables are available 

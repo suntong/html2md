@@ -24,6 +24,15 @@
     - [Credits](#credits-1)
     - [Similar Projects](#similar-projects)
 
+- [Install Debian/Ubuntu package](#install-debianubuntu-package)
+- [Download/install binaries](#downloadinstall-binaries)
+  - [The binary executables](#the-binary-executables)
+  - [Distro package](#distro-package)
+  - [Debian package](#debian-package)
+- [Install Source](#install-source)
+- [Author](#author)
+- [Contributors](#contributors-)
+
 ## html2md - HTML to Markdown converter
 
 The `html2md` makes use of `github.com/JohannesKaufmann/html-to-markdown`
@@ -37,7 +46,7 @@ to convert HTML into Markdown, which is using an [HTML Parser](https://github.co
 ### $ html2md
 ```sh
 HTML to Markdown
-Version 1.0.0 built on 2023-05-02
+Version 1.1.0 built on 2023-05-03
 Copyright (C) 2020-2023, Tong Sun
 
 HTML to Markdown converter on command line
@@ -51,6 +60,8 @@ Options:
   -i, --in                        *The html/xml file to read from (or stdin) 
   -d, --domain                     Domain of the web page, needed for links when --in is not url 
   -s, --sel                        CSS/goquery selectors [=body]
+  -x, --excl                       Excluding CSS/goquery selectors 
+      --xc                         Excluding all children nodes 
   -v, --verbose                    Verbose mode (Multiple -v options increase the verbosity.) 
 
       --opt-heading-style          Option HeadingStyle 
@@ -161,6 +172,10 @@ $ cat $GOPATH/src/github.com/JohannesKaufmann/html-to-markdown/testdata/TestPlug
 - [turndown (js)](https://github.com/domchristie/turndown), a very good library written in javascript.
 - [lunny/html2md](https://github.com/lunny/html2md), which is using [regex instead of goquery](https://stackoverflow.com/a/1732454), which exhibits a few edge cases which prompted `github.com/JohannesKaufmann/html-to-markdown`
 - [jaytaylor/html2text](https://github.com/jaytaylor/html2text), which is not converting to markdown but plain text.
+
+## Install Debian/Ubuntu package
+
+    sudo apt install -y html2md
 
 ## Download/install binaries
 

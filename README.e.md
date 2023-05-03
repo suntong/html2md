@@ -1,6 +1,15 @@
 
 ## {{toc 5}}
 
+- [Install Debian/Ubuntu package](#install-debianubuntu-package)
+- [Download/install binaries](#downloadinstall-binaries)
+  - [The binary executables](#the-binary-executables)
+  - [Distro package](#distro-package)
+  - [Debian package](#debian-package)
+- [Install Source](#install-source)
+- [Author](#author)
+- [Contributors](#contributors-)
+
 ## {{.Name}} - HTML to Markdown converter
 
 The `{{.Name}}` makes use of `github.com/JohannesKaufmann/html-to-markdown`
