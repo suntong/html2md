@@ -35,6 +35,17 @@ func Html2md(ctx *cli.Context) error {
 	doc, err := goquery.NewDocumentFromReader(rootArgv.Filei)
 	clis.AbortOn("Reading file with goquery", err)
 	content := doc.Find(rootArgv.Sel)
+	if rootArgv.ExclChildren {
+		content = content.Children().Remove().End()
+		// h, _ := goquery.OuterHtml(content)
+		// clis.Verbose(3, "%#v\n", h)
+	} else if len(rootArgv.Excl) != 0 {
+		for _, ex := range rootArgv.Excl {
+			content = content.Find(ex).Remove().End()
+			h, _ := content.Html()
+			clis.Verbose(5, "%#v\n", h)
+		}
+	}
 
 	domain, url := rootArgv.Domain, rootArgv.Filei.Name()
 	if domain == "" && regexp.MustCompile(`(?i)^http`).MatchString(url) {

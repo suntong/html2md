@@ -12,6 +12,17 @@ const (
 
 	boldText   = "<strong>Bold Text</strong>"
 	boldEscape = "<strong>option src_ip</strong>"
+
+	excludingControlTest = `<div class="outter-class">
+        <h1 class="inner-class">
+        <div class="other-class3">
+            <h3>Some heading i don't need</h3>
+        </div>
+        The string I need
+        <span class="other-class" >Some value I don't need</span>
+        <span class="other-class2" title="sometitle"></span>
+        </h1>
+    </div>`
 )
 
 type testCase struct {
@@ -44,6 +55,20 @@ func TestExec(t *testing.T) {
 			"PluginStrikethrough", "Only ~~blue ones~~ ~~left~~",
 			"Only <del>blue ones</del> <s> left</s>",
 			[]string{"-i", "--plugin-strikethrough"},
+		},
+		{
+			"ExclChildren", "The string I need", excludingControlTest,
+			[]string{"-s", "h1", "--xc", "-i"},
+		},
+		{
+			"Excl1", `### Some heading i don't need
+
+ The string I need`, excludingControlTest,
+			[]string{"-s", "h1", "-xspan", "-i"},
+		},
+		{
+			"Excl2", "The string I need", excludingControlTest,
+			[]string{"-s", "h1", "-x", "span", "-xdiv", "-i"},
 		},
 		// {
 		// 	"", "", "", []string{"-i"},
