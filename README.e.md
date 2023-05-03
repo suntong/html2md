@@ -1,13 +1,7 @@
 
-{{render "license/shields" . "License" "MIT"}}
-{{template "badge/godoc" .}}
-{{template "badge/goreport" .}}
-{{template "badge/travis" .}}
-[![PoweredBy WireFrame](https://github.com/go-easygen/wireframe/blob/master/PoweredBy-WireFrame-R.svg)](http://godoc.org/github.com/go-easygen/wireframe)
+## {{toc 5}}
 
-# {{toc 5}}
-
-# {{.Name}} - HTML to Markdown converter
+## {{.Name}} - HTML to Markdown converter
 
 The `{{.Name}}` makes use of `github.com/JohannesKaufmann/html-to-markdown`
 to convert HTML into Markdown, which is using an [HTML Parser](https://github.com/PuerkitoBio/goquery) to avoid the use of `regexp` as much as possible, which can prevent some [weird cases](https://stackoverflow.com/a/1732454) and allows it to be used for cases where the input is totally unknown.
@@ -15,13 +9,13 @@ to convert HTML into Markdown, which is using an [HTML Parser](https://github.co
 ![gopher stading on top of a machine that converts a box of html to blocks of markdown](https://github.com/JohannesKaufmann/html-to-markdown/raw/master/logo.png)
 
 
-# Usage
+## Usage
 
 ### $ {{exec "html2md" | color "sh"}}
 
-# Examples
+### Examples
 
-## Simplest form
+#### Simplest form
 
 ```md
 $ html2md -i https://github.com/suntong/html2md | head -3
@@ -30,7 +24,7 @@ $ html2md -i https://github.com/suntong/html2md | head -3
 [Homepage](https://github.com/)
 ```
 
-## Using goquery
+#### Using goquery
 
 The most useful feature is to use and pass a [goquery](https://github.com/PuerkitoBio/goquery) selection to filter for the content you want. 
 
@@ -39,7 +33,7 @@ $ {{.Name}} -i https://github.com/JohannesKaufmann/html-to-markdown -s "div.Bord
 ```
 
 
-## The options and plugins
+### The options and plugins
 
 Works as expected:
 
@@ -59,7 +53,7 @@ $ echo 'Only <del>blue ones</del> <s> left</s>' | html2md -i --plugin-strikethro
 Only ~blue ones~ ~left~
 ```
 
-## Testing the new table plugins
+#### Testing the new table plugins
 
 ```sh
 $ cat $GOPATH/src/github.com/JohannesKaufmann/html-to-markdown/testdata/TestPlugins/table/input.html | html2md -i -T | head -6
@@ -92,47 +86,15 @@ $ cat $GOPATH/src/github.com/JohannesKaufmann/html-to-markdown/testdata/TestPlug
 +
 ```
 
-# Download/Install
-
-
-## Download binaries
-
-- The latest binary executables are available right under the github release page  
-https://github.com/suntong/{{.Name}}/releases  
-as the result of the Continuous-Integration process.
-- I.e., they are built during every git tagged push, automatically by [GitHub Actions](https://github.com/features/actions), right from the source code, truely WYSIWYG.
-- The `.deb`, `.rpm` and `.apk` packages are readily available, as well as the executables for other Linux and Windows as well.
-- Pick & choose the binary executable that suits your OS and its architecture. E.g., for Linux, it would most probably be the `{{.Name}}_ver_linux_amd64.tar.gz` file.
-- Unzip it and put the executable somewhere in the PATH, after downloading it. 
-
-
-## Install Source
-
-To install the source code instead:
-
-```
-go get github.com/suntong/{{.Name}}
-```
-
-# Credits & Authors
-
-
 ## Credits
 
-- [Johannes Kaufmann's html-to-markdown](github.com/JohannesKaufmann/html-to-markdown) that does the heavy lifting behind the scene.
 
-## Similar Projects
+### Credits
+
+- [Johannes Kaufmann's html-to-markdown](https://github.com/JohannesKaufmann/html-to-markdown) that does the heavy lifting behind the scene.
+
+### Similar Projects
 
 - [turndown (js)](https://github.com/domchristie/turndown), a very good library written in javascript.
 - [lunny/html2md](https://github.com/lunny/html2md), which is using [regex instead of goquery](https://stackoverflow.com/a/1732454), which exhibits a few edge cases which prompted `github.com/JohannesKaufmann/html-to-markdown`
 - [jaytaylor/html2text](https://github.com/jaytaylor/html2text), which is not converting to markdown but plain text.
-
-## Author(s) & Contributor(s)
-
-Tong SUN  
-![suntong from cpan.org](https://img.shields.io/badge/suntong-%40cpan.org-lightgrey.svg "suntong from cpan.org")
-
-[![PoweredBy WireFrame](https://github.com/go-easygen/wireframe/blob/master/PoweredBy-WireFrame-Y.svg)](http://godoc.org/github.com/go-easygen/wireframe)  
-_Powered by_ [**WireFrame**](https://github.com/go-easygen/wireframe), the _one-stop wire-framing solution_ for Go cli based projects, from start to deploy.
-
-All patches welcome. 
