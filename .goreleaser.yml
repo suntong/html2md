@@ -19,6 +19,12 @@ builds:
     goarch:
       - amd64
       - arm64
+      - arm
+    ignore:
+      - goos: windows
+        goarch: arm
+      - goos: darwin
+        goarch: arm
 
 nfpms:
 - maintainer: Tong Sun <suntong@cpan.org>
