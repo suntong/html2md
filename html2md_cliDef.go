@@ -26,6 +26,8 @@ type rootT struct {
 	Filei                       *clix.Reader `cli:"*i,in" usage:"The html/xml file to read from (or stdin)"`
 	Domain                      string       `cli:"d,domain" usage:"Domain of the web page, needed for links when --in is not url"`
 	Sel                         string       `cli:"s,sel" usage:"CSS/goquery selectors" dft:"body"`
+	Excl                        []string     `cli:"x,excl" usage:"Excluding CSS/goquery selectors"`
+	ExclChildren                bool         `cli:"xc" usage:"Excluding all children nodes"`
 	Verbose                     cli.Counter  `cli:"v,verbose" usage:"Verbose mode (Multiple -v options increase the verbosity.)\n"`
 	OptHeadingStyle             string       `cli:"opt-heading-style" usage:"Option HeadingStyle"`
 	OptHorizontalRule           string       `cli:"opt-horizontal-rule" usage:"Option HorizontalRule"`
@@ -70,6 +72,8 @@ var root = &cli.Command{
 //  	Filei	*clix.Reader
 //  	Domain	string
 //  	Sel	string
+//  	Excl	[]string
+//  	ExclChildren	bool
 //  	Verbose	cli.Counter
 //  	OptHeadingStyle	string
 //  	OptHorizontalRule	string
@@ -100,7 +104,7 @@ var root = &cli.Command{
 //  var (
 //          progname  = "html2md"
 //          version   = "0.1.0"
-//          date = "2023-05-02"
+//          date = "2023-05-03"
 
 //  	rootArgv *rootT
 //  	// Opts store all the configurable options

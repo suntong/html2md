@@ -31,6 +31,16 @@ Options:
     Usage: "CSS/goquery selectors"
     Value: "body"
 
+  - Name: Excl
+    Type: '[]string'
+    Flag: 'x,excl'
+    Usage: "Excluding CSS/goquery selectors"
+
+  - Name: ExclChildren
+    Type: bool
+    Flag: "xc"
+    Usage: Excluding all children nodes
+
   - Name: Verbose
     Type: cli.Counter
     Flag: v,verbose
