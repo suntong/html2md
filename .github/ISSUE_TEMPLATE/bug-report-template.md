@@ -17,6 +17,10 @@ $ echo "foo<br>bar" | html2md -i
 foo
 
 bar
+
+$ html2md | head -2
+HTML to Markdown
+Version x.y.0 built on 2023-...
 ```
 
 **Expected output**
