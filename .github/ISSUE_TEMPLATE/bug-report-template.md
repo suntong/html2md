@@ -7,6 +7,10 @@ assignees: ''
 
 ---
 
+**Justification**
+
+The reason for not reporting the issue [upstream](https://github.com/JohannesKaufmann/html-to-markdown/issues) is that ??
+
 **Describe the bug**
 A clear and concise description of what the bug is.
 
