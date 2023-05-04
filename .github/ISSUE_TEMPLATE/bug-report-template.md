@@ -1,5 +1,5 @@
 ---
-name: Bug report template
+name: Bug report
 about: Create a report to help us improve
 title: ''
 labels: ''
@@ -12,7 +12,9 @@ assignees: ''
 The reason for not reporting the issue [upstream](https://github.com/JohannesKaufmann/html-to-markdown/issues) is that ??
 
 **Describe the bug**
-A clear and concise description of what the bug is.
+
+Here is a clear and concise description of what the bug is --
+
 
 **To Reproduce**
 
@@ -35,4 +37,6 @@ bar
 ```
 
 **Additional context**
-Add any other context about the problem here.
+
+Any other context about the problem:
+
