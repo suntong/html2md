@@ -98,6 +98,9 @@ func handleOptions(opt *md.Options, rootArgv *rootT) *md.Options {
 }
 
 func handlePlugins(conv *md.Converter, rootArgv *rootT) *md.Converter {
+	if rootArgv.PluginBrToNewline {
+		conv.Use(BrToNewline())
+	}
 	if rootArgv.PluginConfluenceAttachments {
 		conv.Use(plugin.ConfluenceAttachments())
 	}

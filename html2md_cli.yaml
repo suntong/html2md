@@ -101,6 +101,11 @@ Options:
 
 # Plugins
 
+  - Name: PluginBrToNewline
+    Type: bool
+    Flag: "plugin-br-to-newline"
+    Usage: Plugin BrToNewline
+
   - Name: PluginConfluenceAttachments
     Type: bool
     Flag: "A,plugin-conf-attachment"
