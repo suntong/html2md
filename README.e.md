@@ -15,7 +15,7 @@
 The `{{.Name}}` makes use of `github.com/JohannesKaufmann/html-to-markdown`
 to convert HTML into Markdown, which is using an [HTML Parser](https://github.com/PuerkitoBio/goquery) to avoid the use of `regexp` as much as possible, which can prevent some [weird cases](https://stackoverflow.com/a/1732454) and allows it to be used for cases where the input is totally unknown.
 
-![gopher stading on top of a machine that converts a box of html to blocks of markdown](https://github.com/JohannesKaufmann/html-to-markdown/raw/master/logo.png)
+![html-to-markdown logo](https://github.com/JohannesKaufmann/html-to-markdown/raw/master/logo_five_years.png)
 
 
 ## Usage

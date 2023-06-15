@@ -23,8 +23,8 @@ import (
 
 var (
 	progname = "html2md"
-	version  = "1.1.0"
-	date     = "2023-05-03"
+	version  = "1.1.1"
+	date     = "2023-06-15"
 
 	rootArgv *rootT
 )

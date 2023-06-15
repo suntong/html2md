@@ -38,7 +38,7 @@
 The `html2md` makes use of `github.com/JohannesKaufmann/html-to-markdown`
 to convert HTML into Markdown, which is using an [HTML Parser](https://github.com/PuerkitoBio/goquery) to avoid the use of `regexp` as much as possible, which can prevent some [weird cases](https://stackoverflow.com/a/1732454) and allows it to be used for cases where the input is totally unknown.
 
-![gopher stading on top of a machine that converts a box of html to blocks of markdown](https://github.com/JohannesKaufmann/html-to-markdown/raw/master/logo.png)
+![html-to-markdown logo](https://github.com/JohannesKaufmann/html-to-markdown/raw/master/logo_five_years.png)
 
 
 ## Usage
@@ -46,7 +46,7 @@ to convert HTML into Markdown, which is using an [HTML Parser](https://github.co
 ### $ html2md
 ```sh
 HTML to Markdown
-Version 1.1.0 built on 2023-05-03
+Version 1.1.1 built on 2023-06-15
 Copyright (C) 2020-2023, Tong Sun
 
 HTML to Markdown converter on command line
@@ -75,6 +75,7 @@ Options:
       --opt-link-reference-style   Option LinkReferenceStyle 
       --opt-escape-mode            Option EscapeMode 
 
+      --plugin-br-to-newline       Plugin BrToNewline 
   -A, --plugin-conf-attachment     Plugin ConfluenceAttachments 
   -C, --plugin-conf-code           Plugin ConfluenceCodeBlock 
   -F, --plugin-frontmatter         Plugin FrontMatter 
