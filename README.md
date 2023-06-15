@@ -1,6 +1,6 @@
 # html2md
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![MIT License](http://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
@@ -267,6 +267,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/vivook"><img src="https://avatars.githubusercontent.com/u/24224102?v=4?s=100" width="100px;" alt="vivook"/><br /><sub><b>vivook</b></sub></a><br /><a href="https://github.com/suntong/html2md/issues?q=author%3Avivook" title="Bug reports">🐛</a> <a href="#userTesting-vivook" title="User Testing">📓</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/097115"><img src="https://avatars.githubusercontent.com/u/1415155?v=4?s=100" width="100px;" alt="097115"/><br /><sub><b>097115</b></sub></a><br /><a href="https://github.com/suntong/html2md/issues?q=author%3A097115" title="Bug reports">🐛</a> <a href="#ideas-097115" title="Ideas, Planning, & Feedback">🤔</a> <a href="#userTesting-097115" title="User Testing">📓</a></td>
       <td align="center" valign="top" width="14.28%"><a href="http://magnusviri.com"><img src="https://avatars.githubusercontent.com/u/711269?v=4?s=100" width="100px;" alt="James Reynolds"/><br /><sub><b>James Reynolds</b></sub></a><br /><a href="https://github.com/suntong/html2md/pulls?q=is%3Apr+reviewed-by%3Amagnusviri" title="Reviewed Pull Requests">👀</a> <a href="#talk-magnusviri" title="Talks">📢</a> <a href="#userTesting-magnusviri" title="User Testing">📓</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/ImportTaste"><img src="https://avatars.githubusercontent.com/u/53661808?v=4?s=100" width="100px;" alt="ImportTaste"/><br /><sub><b>ImportTaste</b></sub></a><br /><a href="https://github.com/suntong/html2md/commits?author=ImportTaste" title="Code">💻</a> <a href="https://github.com/suntong/html2md/issues?q=author%3AImportTaste" title="Bug reports">🐛</a> <a href="#userTesting-ImportTaste" title="User Testing">📓</a></td>
     </tr>
   </tbody>
 </table>
