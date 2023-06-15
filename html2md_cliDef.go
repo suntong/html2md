@@ -39,6 +39,7 @@ type rootT struct {
 	OptLinkStyle                string       `cli:"opt-link-style" usage:"Option LinkStyle"`
 	OptLinkReferenceStyle       string       `cli:"opt-link-reference-style" usage:"Option LinkReferenceStyle"`
 	OptEscapeMode               string       `cli:"opt-escape-mode" usage:"Option EscapeMode\n"`
+	PluginBrToNewline           bool         `cli:"plugin-br-to-newline" usage:"Plugin BrToNewline"`
 	PluginConfluenceAttachments bool         `cli:"A,plugin-conf-attachment" usage:"Plugin ConfluenceAttachments"`
 	PluginConfluenceCodeBlock   bool         `cli:"C,plugin-conf-code" usage:"Plugin ConfluenceCodeBlock"`
 	PluginFrontMatter           bool         `cli:"F,plugin-frontmatter" usage:"Plugin FrontMatter"`
@@ -85,6 +86,7 @@ var root = &cli.Command{
 //  	OptLinkStyle	string
 //  	OptLinkReferenceStyle	string
 //  	OptEscapeMode	string
+//  	PluginBrToNewline	bool
 //  	PluginConfluenceAttachments	bool
 //  	PluginConfluenceCodeBlock	bool
 //  	PluginFrontMatter	bool
