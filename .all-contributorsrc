@@ -94,6 +94,17 @@
         "talk",
         "userTesting"
       ]
+    },
+    {
+      "login": "ImportTaste",
+      "name": "ImportTaste",
+      "avatar_url": "https://avatars.githubusercontent.com/u/53661808?v=4",
+      "profile": "https://github.com/ImportTaste",
+      "contributions": [
+        "code",
+        "bug",
+        "userTesting"
+      ]
     }
   ],
   "contributorsPerLine": 7,
@@ -102,5 +113,6 @@
   "repoType": "github",
   "repoHost": "https://github.com",
   "skipCi": true,
-  "commitConvention": "angular"
+  "commitConvention": "angular",
+  "commitType": "docs"
 }
