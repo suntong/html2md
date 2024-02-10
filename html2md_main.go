@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////
 // Program: html2md
 // Purpose: HTML to Markdown
-// Authors: Tong Sun (c) 2020-2023, All rights reserved
+// Authors: Tong Sun (c) 2020-2024, All rights reserved
 ////////////////////////////////////////////////////////////////////////////
 
 package main
@@ -23,8 +23,8 @@ import (
 
 var (
 	progname = "html2md"
-	version  = "1.1.1"
-	date     = "2023-06-15"
+	version  = "1.5.0"
+	date     = "2024-02-10"
 
 	rootArgv *rootT
 )

@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////
 // Program: html2md
 // Purpose: HTML to Markdown
-// Authors: Tong Sun (c) 2020, All rights reserved
+// Authors: Tong Sun (c) 2020-2024, All rights reserved
 ////////////////////////////////////////////////////////////////////////////
 
 package main
@@ -128,8 +128,8 @@ func handlePlugins(conv *md.Converter, rootArgv *rootT) *md.Converter {
 	// if rootArgv.PluginVimeoEmbed {
 	// 	conv.Use(plugin.VimeoEmbed())
 	// }
-	// if rootArgv.PluginYoutubeEmbed {
-	// 	conv.Use(plugin.YoutubeEmbed())
-	// }
+	if rootArgv.PluginYoutubeEmbed {
+		conv.Use(plugin.YoutubeEmbed())
+	}
 	return conv
 }
