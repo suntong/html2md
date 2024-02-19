@@ -35,7 +35,7 @@
 
 ## html2md - HTML to Markdown converter
 
-The `html2md` makes use of `github.com/JohannesKaufmann/html-to-markdown`
+The `html2md` makes use of https://github.com/JohannesKaufmann/html-to-markdown
 to convert HTML into Markdown, which is using an [HTML Parser](https://github.com/PuerkitoBio/goquery) to avoid the use of `regexp` as much as possible, which can prevent some [weird cases](https://stackoverflow.com/a/1732454) and allows it to be used for cases where the input is totally unknown.
 
 ![html-to-markdown logo](https://github.com/JohannesKaufmann/html-to-markdown/raw/master/logo_five_years.png)
@@ -46,8 +46,8 @@ to convert HTML into Markdown, which is using an [HTML Parser](https://github.co
 ### $ html2md
 ```sh
 HTML to Markdown
-Version 1.1.1 built on 2023-06-15
-Copyright (C) 2020-2023, Tong Sun
+Version 1.5.0 built on 2024-02-10
+Copyright (C) 2020-2024, Tong Sun
 
 HTML to Markdown converter on command line
 
@@ -128,6 +128,11 @@ $ echo '<ul><li><input type=checkbox checked>Checked!</li><li><input type=checkb
 
 $ echo 'Only <del>blue ones</del> <s> left</s>' | html2md -i --plugin-strikethrough
 Only ~~blue ones~~ ~~left~~
+
+$ echo '<p>Lorem Ipsum:</p><p style="text-align: center;"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/PifPVQOFyZI" title="YouTube video player" width="560"></iframe></p>' | ./html2md -i --plugin-youtube
+Lorem Ipsum:
+
+[![YouTube video player](https://img.youtube.com/vi/PifPVQOFyZI/0.jpg)](https://www.youtube.com/watch?v=PifPVQOFyZI)
 ```
 
 #### Testing the new table plugins

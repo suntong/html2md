@@ -55,7 +55,7 @@ type rootT struct {
 var root = &cli.Command{
 	Name: "html2md",
 	Desc: "HTML to Markdown\nVersion " + version + " built on " + date +
-		"\nCopyright (C) 2020-2023, Tong Sun",
+		"\nCopyright (C) 2020-2024, Tong Sun",
 	Text: "HTML to Markdown converter on command line" +
 		"\n\nUsage:\n  html2md [Options...]",
 	Argv: func() interface{} { return new(rootT) },
