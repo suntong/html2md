@@ -1,4 +1,4 @@
-# html2md
+# html2md ([_repository archived_](https://github.com/suntong/html2md/issues/21))
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
