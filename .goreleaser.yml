@@ -1,11 +1,13 @@
+version: 2
+
 project_name: html2md
 
 archives:
-  - format: tar.gz
+  - formats: tar.gz
     wrap_in_directory: true
     format_overrides:
       - goos: windows
-        format: zip
+        formats: zip
     # remove README and LICENSE
     files:
       - none*
